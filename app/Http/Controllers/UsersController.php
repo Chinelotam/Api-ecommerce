@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\User;
+use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function index(){
-
-        return User::all();
+        
+        $users = User::all();
+        return response()->json(['data'=> $users]);
     }
 
     public function store(Request $request){

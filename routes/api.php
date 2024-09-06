@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\VendorsController;
+use App\Http\Controllers\CartItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/users', 'UsersController@index');
-Route::post('/users', 'UsersController@store');
-Route::get('/users/{id}', 'UsersController@show');
-Route::put('/users/{id}', 'UsersController@update');
-Route::delete('/users{id}', 'UsersController@destroy');
+Route::get('/users', [UsersController::class, 'index']);
+Route::post('/users', [UsersController::class, 'store']);
+Route::get('/users/{id}', [UsersController::class, 'show']);
+Route::put('/users/{id}', [UsersController::class, 'update']);
+Route::delete('/users{id}', [UsersController::class, 'destroy']);
 
-Route::get('/vendors', 'VendorsController@index');
-Route::post('/vendors', 'VendorsController@store');
-Route::get('/vendors/{id}', 'VendorsController@show');
-Route::put('/vendors/{id}', 'VendorsController@update');
-Route::delete('/vendors/{id}', 'VendorsController@destroy');
+Route::get('/vendors', [VendorsController::class, 'index']);
+Route::post('/vendors', [VendorsController::class, 'store']);
+Route::get('/vendors/{id}', [VendorsController::class, 'show']);
+Route::put('/vendors/{id}', [VendorsController::class, 'update']);
+Route::delete('/vendors/{id}', [VendorsController::class, 'destroy']);
 
 Route::get('/products', 'ProductsController@index');
 Route::post('/products', 'ProductsController@store');
@@ -44,11 +47,12 @@ Route::get('/orders/{id}', 'OrdersController@show');
 Route::put('/orders/{id}', 'OrdersController@update');
 Route::delete('/orders/{id}', 'OrdersContoller@destroy');
 
-Route::get('/cartitems', 'CartItemsController@index');
-Route::post('/cartitems', 'CartItemsController@store');
-Route::get('/cartitems/{id}', 'CartItemsController@show');
-Route::put('/cartitems/{id}', 'CartItemsController@update');
-Route::delete('/cartitems/{id}', 'CartItemsContoller@destroy');
+
+Route::get('/cartItems', [CartItemsController::class, 'index']);
+Route::post('/cartItems', [CartItemsController::class, 'store']);
+Route::get('/cartItems/{id}', [CartItemsController::class, 'show']);
+Route::put('/cartItems/{id}', [CartItemsController::class, 'update']);
+Route::delete('/cartItems/{id}', [CartItemsController::class, 'destroy']);
 
 Route::get('/media', 'MediaController@index');
 Route::post('/media', 'MediaController@store');
